@@ -1,66 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Restaurante Saboroso!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Site do restaurante fictício Saboroso desenvolvido no curso de JavaScript da Hcode Treinamentos"
-    />
-    <meta name="author" content="Hcode.com.br" />
-
-    <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon" />
-    <link
-      rel="shortcut icon"
-      href="../../assets/favicon.ico"
-      type="image/x-icon"
-    />
-
-    <meta name="theme-color" content="#FBB448" />
-
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Kaushan+Script"
-      rel="stylesheet"
-    />
-
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="../../assets/css/animate.css" />
-    <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="../../assets/css/icomoon.css" />
-    <!-- Themify Icons-->
-    <link rel="stylesheet" href="../../assets/css/themify-icons.css" />
-    <!-- Bootstrap  -->
-    <link rel="stylesheet" href="../../assets/css/bootstrap.css" />
-
-    <!-- Magnific Popup -->
-    <link rel="stylesheet" href="../../assets/css/magnific-popup.css" />
-
-    <!-- Bootstrap DateTimePicker -->
-    <link
-      rel="stylesheet"
-      href="../../assets/css/bootstrap-datetimepicker.min.css"
-    />
-
-    <!-- Owl Carousel  -->
-    <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css" />
-
-    <!-- Theme style  -->
-    <link rel="stylesheet" href="../../assets/css/style.css" />
-
-    <!-- Modernizr JS -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
-    <!-- FOR IE9 below -->
-    <!--[if lt IE 9]>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->
-  </head>
+  <%- include('includes/head') %>
 
   <body>
     <div class="gtco-loader"></div>
@@ -235,64 +175,11 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
-              <a
-                href="../../assets/images/img_1.jpg"
-                class="fh5co-card-item image-popup"
-              >
-                <figure>
-                  <div class="overlay">
-                    <i class="ti-plus"></i>
-                  </div>
-                  <img
-                    src="../../assets/images/img_1.jpg"
-                    alt="Image"
-                    class="img-responsive"
-                  />
-                </figure>
-                <div class="fh5co-text">
-                  <h2>Bife de Costela com molho</h2>
-                  <p>
-                    Vide electram sadipscing et per. Aenean aliquam molestie
-                    leo, vitae iaculis nisl.
-                  </p>
-                  <p>
-                    <span class="price cursive-font">R$35,69</span>
-                  </p>
-                </div>
-              </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-              <a
-                href="../../assets/images/img_3.jpg"
-                class="fh5co-card-item image-popup"
-              >
-                <figure>
-                  <div class="overlay">
-                    <i class="ti-plus"></i>
-                  </div>
-                  <img
-                    src="../../assets/images/img_2.jpg"
-                    alt="Image"
-                    class="img-responsive"
-                  />
-                </figure>
-                <div class="fh5co-text">
-                  <h2>Hambúrguer com Fritas</h2>
-                  <p>
-                    Vide electram sadipscing et per. Aenean aliquam molestie
-                    leo, vitae iaculis nisl.
-                  </p>
-                  <p>
-                    <span class="price cursive-font">R$22,80</span>
-                  </p>
-                </div>
-              </a>
-            </div>
+            <% menus.forEach(row => { %>
 
             <div class="col-lg-4 col-md-4 col-sm-6">
               <a
-                href="../../assets/images/img_5.jpg"
+                href="../../assets/<%= row.photo %>"
                 class="fh5co-card-item image-popup"
               >
                 <figure>
@@ -300,23 +187,21 @@
                     <i class="ti-plus"></i>
                   </div>
                   <img
-                    src="../../assets/images/img_5.jpg"
+                    src="../../assets/<%= row.photo %>"
                     alt="Image"
                     class="img-responsive"
                   />
                 </figure>
                 <div class="fh5co-text">
-                  <h2>Chilli com Carne</h2>
+                  <h2><%= row.title %></h2>
+                  <p><%= row.description %></p>
                   <p>
-                    Vide electram sadipscing et per. Aenean aliquam molestie
-                    leo, vitae iaculis nisl.
-                  </p>
-                  <p>
-                    <span class="price cursive-font">R$29,40</span>
+                    <span class="price cursive-font"><%= row.price %></span>
                   </p>
                 </div>
               </a>
             </div>
+            <% }); %>
           </div>
         </div>
       </div>
